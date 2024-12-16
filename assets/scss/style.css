@@ -3278,7 +3278,7 @@ section {
   margin: 0;
   padding: 0;
 }
-.description-text.grey-primary {
+.description-text.grey {
   color: #999999;
 }
 .description-text.text-justify {
@@ -3289,6 +3289,9 @@ section {
 }
 .description-text.text-center {
   text-align: center;
+}
+.description-text.text-left {
+  text-align: left;
 }
 .description-text.font-italic {
   font-style: italic;
@@ -3343,7 +3346,7 @@ body {
 }
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
-  width: 3px;
+  width: 20px;
 }
 html::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track {
@@ -3367,4 +3370,53 @@ body .main {
 ::selection {
   color: #ffffff;
   background: #000000;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+/*======FOOTER======*/
+.footer {
+  padding: 60px 15px 16px 15px;
+}
+
+.footer-right {
+  gap: 20px;
+}
+
+@media (min-width: 992px) {
+  .footer {
+    padding: 120px 20px 16px 20px;
+  }
+  .footer-left .footer-left-link:hover {
+    text-decoration: underline;
+  }
+  .footer-right .footer-right-link {
+    transition: all 0.3s ease-in-out;
+  }
+  .footer-right .footer-right-link:hover {
+    animation: shake 0.3s ease infinite;
+  }
+  .footer-right .footer-right-link:hover .description-text {
+    color: #000000;
+  }
 }/*# sourceMappingURL=style.css.map */

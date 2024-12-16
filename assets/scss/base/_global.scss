@@ -19,7 +19,7 @@ body {
   scroll-behavior: smooth;
   scrollbar-color: $black;
   &::-webkit-scrollbar {
-    width: 3px;
+    width: 20px;
   }
   /* Track */
   &::-webkit-scrollbar-track {
@@ -37,4 +37,25 @@ body {
 ::selection {
   color: $white;
   background: $black;
+}
+a {
+  text-decoration: none;
+  color: $black;
+}
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }

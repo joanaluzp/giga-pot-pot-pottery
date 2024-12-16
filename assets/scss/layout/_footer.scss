@@ -1,0 +1,32 @@
+/*======FOOTER======*/
+.footer {
+  padding: 60px 15px 16px 15px;
+}
+
+.footer-right {
+  gap: 20px;
+}
+
+@media (min-width: 992px) {
+  .footer {
+    padding: 120px 20px 16px 20px;
+  }
+  .footer-left {
+    .footer-left-link {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .footer-right {
+    .footer-right-link {
+        @include transition;
+      &:hover {
+        animation: shake 0.3s ease infinite;
+        .description-text{
+            color: $black;
+        }
+      }
+    }
+  }
+}
