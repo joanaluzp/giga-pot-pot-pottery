@@ -7,11 +7,9 @@
 
 <script setup lang="ts">
 import { components } from '~/slices'
-
 const prismic = usePrismic();
-const route = useRoute();
-const { data: page } = useAsyncData(route.params.uid as string, () =>
-  prismic.client.getByUID('page', route.params.uid as string)
+const { data: page } = useAsyncData('archive', () =>
+  prismic.client.getByUID('page', 'archive')
 )
 
 useSeoMeta({

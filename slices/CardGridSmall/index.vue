@@ -1,0 +1,43 @@
+<script setup lang="ts">
+import { type Content } from "@prismicio/client";
+
+// The array passed to `getSliceComponentProps` is purely optional.
+// Consider it as a visual hint for you when templating your slice.
+defineProps(
+  getSliceComponentProps<Content.CardGridSwiperSlice>([
+    "slice",
+    "index",
+    "slices",
+    "context",
+  ])
+);
+</script>
+
+<template>
+  <section
+    :data-slice-type="slice.slice_type"
+    :data-slice-variation="slice.variation"
+  >
+    <template v-for="item in slice.primary.card_1">
+      <PrismicLink :field="item.link">
+        <PrismicImage :field="item.image" />
+        {{ item.title }}
+        {{ item.price }}
+      </PrismicLink>
+    </template>
+    <template v-for="item in slice.primary.card_2">
+      <PrismicLink :field="item.link">
+        <PrismicImage :field="item.image" />
+        {{ item.title }}
+        {{ item.price }}
+      </PrismicLink>
+    </template>
+    <template v-for="item in slice.primary.card_3">
+      <PrismicLink :field="item.link">
+        <PrismicImage :field="item.image" />
+        {{ item.title }}
+        {{ item.price }}
+      </PrismicLink>
+    </template>
+  </section>
+</template>

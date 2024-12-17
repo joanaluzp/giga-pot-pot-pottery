@@ -20,10 +20,10 @@
           "placeholder": ""
         }
       },
-      "og_image": {
+      "meta_image": {
         "type": "Image",
         "config": {
-          "label": "OG Image",
+          "label": "Meta Image",
           "constraint": {
             "width": 1280,
             "height": 720

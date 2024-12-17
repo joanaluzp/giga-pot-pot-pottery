@@ -4,5 +4,15 @@ import { defineAsyncComponent } from "vue";
 import { defineSliceZoneComponents } from "@prismicio/vue";
 
 export const components = defineSliceZoneComponents({
-  rich_text: defineAsyncComponent(() => import("./RichText/index.vue")),
+  card_grid_swiper: defineAsyncComponent(
+    () => import("./CardGridSmall/index.vue"),
+  ),
+  card_image: defineAsyncComponent(() => import("./CardGridBig/index.vue")),
+  hero_banner: defineAsyncComponent(() => import("./HeroBanner/index.vue")),
+  main_description: defineAsyncComponent(
+    () => import("./MainDescription/index.vue"),
+  ),
+  single_product: defineAsyncComponent(
+    () => import("./SingleProduct/index.vue"),
+  ),
 });

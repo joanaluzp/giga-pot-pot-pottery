@@ -13,6 +13,6 @@ const { asImageSrc } = usePrismic();
 useSeoMeta({
   title: settings.value?.data.site_title,
   description: settings.value?.data.meta_description,
-  ogImage: asImageSrc(settings.value?.data.og_image),
+  ogImage: asImageSrc(settings.value?.data.meta_image),
 });
 </script>

@@ -9,7 +9,7 @@ type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
  */
 export interface FooterDocumentDataFooterNameItem {
   /**
-   * link field in *Footer → Footer Name*
+   * Link field in *Footer → Footer Name*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -19,7 +19,7 @@ export interface FooterDocumentDataFooterNameItem {
   link: prismic.LinkField;
 
   /**
-   * label field in *Footer → Footer Name*
+   * Label field in *Footer → Footer Name*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -34,7 +34,7 @@ export interface FooterDocumentDataFooterNameItem {
  */
 export interface FooterDocumentDataFooterNavigationItem {
   /**
-   * link field in *Footer → Footer Navigation*
+   * Link field in *Footer → Footer Navigation*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -44,7 +44,7 @@ export interface FooterDocumentDataFooterNavigationItem {
   link: prismic.LinkField;
 
   /**
-   * label field in *Footer → Footer Navigation*
+   * Label field in *Footer → Footer Navigation*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -99,7 +99,11 @@ export type FooterDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = RichTextSlice;
+type PageDocumentDataSlicesSlice =
+  | CardGridSwiperSlice
+  | CardImageSlice
+  | MainDescriptionSlice
+  | HeroBannerSlice;
 
 /**
  * Content for Page documents
@@ -125,7 +129,38 @@ interface PageDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<PageDocumentDataSlicesSlice>;
+  slices: prismic.SliceZone<PageDocumentDataSlicesSlice> /**
+   * Meta Title field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.meta_title
+   * - **Tab**: SEO
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.meta_description
+   * - **Tab**: SEO
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.meta_image
+   * - **Tab**: SEO
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
 }
 
 /**
@@ -139,6 +174,82 @@ interface PageDocumentData {
  */
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
+
+type ProductDocumentDataSlicesSlice = SingleProductSlice;
+
+/**
+ * Content for Product documents
+ */
+interface ProductDocumentData {
+  /**
+   * Title field in *Product*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Product*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ProductDocumentDataSlicesSlice> /**
+   * Meta Title field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: product.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: product.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Product*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Product document from Prismic
+ *
+ * - **API ID**: `product`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProductDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProductDocumentData>,
+    "product",
+    Lang
+  >;
 
 /**
  * Content for Settings documents
@@ -167,15 +278,15 @@ interface SettingsDocumentData {
   meta_description: prismic.KeyTextField;
 
   /**
-   * OG Image field in *Settings*
+   * Meta Image field in *Settings*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.og_image
+   * - **API ID Path**: settings.meta_image
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  og_image: prismic.ImageField<never>;
+  meta_image: prismic.ImageField<never>;
 }
 
 /**
@@ -194,51 +305,508 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = FooterDocument | PageDocument | SettingsDocument;
+export type AllDocumentTypes =
+  | FooterDocument
+  | PageDocument
+  | ProductDocument
+  | SettingsDocument;
 
 /**
- * Primary content in *RichText → Default → Primary*
+ * Item in *CardGridSmall → Default → Primary → Card 1*
  */
-export interface RichTextSliceDefaultPrimary {
+export interface CardGridSwiperSliceDefaultPrimaryCard1Item {
   /**
-   * Content field in *RichText → Default → Primary*
+   * Link field in *CardGridSmall → Default → Primary → Card 1*
    *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Lorem ipsum...
-   * - **API ID Path**: rich_text.default.primary.content
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_swiper.default.primary.card_1[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  content: prismic.RichTextField;
+  link: prismic.LinkField;
+
+  /**
+   * Image field in *CardGridSmall → Default → Primary → Card 1*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_swiper.default.primary.card_1[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *CardGridSmall → Default → Primary → Card 1*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_swiper.default.primary.card_1[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Price field in *CardGridSmall → Default → Primary → Card 1*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_swiper.default.primary.card_1[].price
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  price: prismic.NumberField;
 }
 
 /**
- * Default variation for RichText Slice
+ * Item in *CardGridSmall → Default → Primary → Card 2*
+ */
+export interface CardGridSwiperSliceDefaultPrimaryCard2Item {
+  /**
+   * Link field in *CardGridSmall → Default → Primary → Card 2*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_swiper.default.primary.card_2[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Image field in *CardGridSmall → Default → Primary → Card 2*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_swiper.default.primary.card_2[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *CardGridSmall → Default → Primary → Card 2*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_swiper.default.primary.card_2[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Price field in *CardGridSmall → Default → Primary → Card 2*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_swiper.default.primary.card_2[].price
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  price: prismic.NumberField;
+}
+
+/**
+ * Item in *CardGridSmall → Default → Primary → Card 3*
+ */
+export interface CardGridSwiperSliceDefaultPrimaryCard3Item {
+  /**
+   * Link field in *CardGridSmall → Default → Primary → Card 3*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_swiper.default.primary.card_3[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Image field in *CardGridSmall → Default → Primary → Card 3*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_swiper.default.primary.card_3[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *CardGridSmall → Default → Primary → Card 3*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_swiper.default.primary.card_3[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Price field in *CardGridSmall → Default → Primary → Card 3*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_swiper.default.primary.card_3[].price
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  price: prismic.NumberField;
+}
+
+/**
+ * Item in *CardGridSmall → Default → Primary → Button Link*
+ */
+export interface CardGridSwiperSliceDefaultPrimaryButtonLinkItem {
+  /**
+   * Link field in *CardGridSmall → Default → Primary → Button Link*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_swiper.default.primary.button_link[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Title field in *CardGridSmall → Default → Primary → Button Link*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_swiper.default.primary.button_link[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *CardGridSmall → Default → Primary*
+ */
+export interface CardGridSwiperSliceDefaultPrimary {
+  /**
+   * Card 1 field in *CardGridSmall → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_swiper.default.primary.card_1[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  card_1: prismic.GroupField<
+    Simplify<CardGridSwiperSliceDefaultPrimaryCard1Item>
+  >;
+
+  /**
+   * Card 2 field in *CardGridSmall → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_swiper.default.primary.card_2[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  card_2: prismic.GroupField<
+    Simplify<CardGridSwiperSliceDefaultPrimaryCard2Item>
+  >;
+
+  /**
+   * Card 3 field in *CardGridSmall → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_swiper.default.primary.card_3[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  card_3: prismic.GroupField<
+    Simplify<CardGridSwiperSliceDefaultPrimaryCard3Item>
+  >;
+
+  /**
+   * Button Link field in *CardGridSmall → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_swiper.default.primary.button_link[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  button_link: prismic.GroupField<
+    Simplify<CardGridSwiperSliceDefaultPrimaryButtonLinkItem>
+  >;
+}
+
+/**
+ * Default variation for CardGridSmall Slice
  *
  * - **API ID**: `default`
- * - **Description**: RichText
+ * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type RichTextSliceDefault = prismic.SharedSliceVariation<
+export type CardGridSwiperSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<RichTextSliceDefaultPrimary>,
+  Simplify<CardGridSwiperSliceDefaultPrimary>,
   never
 >;
 
 /**
- * Slice variation for *RichText*
+ * Slice variation for *CardGridSmall*
  */
-type RichTextSliceVariation = RichTextSliceDefault;
+type CardGridSwiperSliceVariation = CardGridSwiperSliceDefault;
 
 /**
- * RichText Shared Slice
+ * CardGridSmall Shared Slice
  *
- * - **API ID**: `rich_text`
- * - **Description**: RichText
+ * - **API ID**: `card_grid_swiper`
+ * - **Description**: CardGridSwiper
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type RichTextSlice = prismic.SharedSlice<
-  "rich_text",
-  RichTextSliceVariation
+export type CardGridSwiperSlice = prismic.SharedSlice<
+  "card_grid_swiper",
+  CardGridSwiperSliceVariation
+>;
+
+/**
+ * Item in *CardGridBig → Default → Primary → Card*
+ */
+export interface CardImageSliceDefaultPrimaryCardItem {
+  /**
+   * Link field in *CardGridBig → Default → Primary → Card*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_image.default.primary.card[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Image field in *CardGridBig → Default → Primary → Card*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_image.default.primary.card[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *CardGridBig → Default → Primary → Card*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_image.default.primary.card[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Price field in *CardGridBig → Default → Primary → Card*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_image.default.primary.card[].price
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  price: prismic.NumberField;
+}
+
+/**
+ * Primary content in *CardGridBig → Default → Primary*
+ */
+export interface CardImageSliceDefaultPrimary {
+  /**
+   * Card field in *CardGridBig → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_image.default.primary.card[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  card: prismic.GroupField<Simplify<CardImageSliceDefaultPrimaryCardItem>>;
+}
+
+/**
+ * Default variation for CardGridBig Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardImageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CardImageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CardGridBig*
+ */
+type CardImageSliceVariation = CardImageSliceDefault;
+
+/**
+ * CardGridBig Shared Slice
+ *
+ * - **API ID**: `card_image`
+ * - **Description**: CardImage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardImageSlice = prismic.SharedSlice<
+  "card_image",
+  CardImageSliceVariation
+>;
+
+/**
+ * Primary content in *HeroBanner → Default → Primary*
+ */
+export interface HeroBannerSliceDefaultPrimary {
+  /**
+   * Hero Image field in *HeroBanner → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_banner.default.primary.hero_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  hero_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for HeroBanner Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroBannerSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroBannerSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HeroBanner*
+ */
+type HeroBannerSliceVariation = HeroBannerSliceDefault;
+
+/**
+ * HeroBanner Shared Slice
+ *
+ * - **API ID**: `hero_banner`
+ * - **Description**: HeroBanner
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroBannerSlice = prismic.SharedSlice<
+  "hero_banner",
+  HeroBannerSliceVariation
+>;
+
+/**
+ * Primary content in *MainDescription → Default → Primary*
+ */
+export interface MainDescriptionSliceDefaultPrimary {
+  /**
+   * Title field in *MainDescription → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_description.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *MainDescription → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_description.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for MainDescription Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MainDescriptionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MainDescriptionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *MainDescription*
+ */
+type MainDescriptionSliceVariation = MainDescriptionSliceDefault;
+
+/**
+ * MainDescription Shared Slice
+ *
+ * - **API ID**: `main_description`
+ * - **Description**: MainDescription
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MainDescriptionSlice = prismic.SharedSlice<
+  "main_description",
+  MainDescriptionSliceVariation
+>;
+
+/**
+ * Primary content in *SingleProduct → Default → Primary*
+ */
+export interface SingleProductSliceDefaultPrimary {
+  /**
+   * Title field in *SingleProduct → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: single_product.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Image field in *SingleProduct → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: single_product.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Price field in *SingleProduct → Default → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: single_product.default.primary.price
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  price: prismic.NumberField;
+}
+
+/**
+ * Default variation for SingleProduct Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SingleProductSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SingleProductSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SingleProduct*
+ */
+type SingleProductSliceVariation = SingleProductSliceDefault;
+
+/**
+ * SingleProduct Shared Slice
+ *
+ * - **API ID**: `single_product`
+ * - **Description**: SingleProduct
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SingleProductSlice = prismic.SharedSlice<
+  "single_product",
+  SingleProductSliceVariation
 >;
 
 declare module "@prismicio/client" {
@@ -269,13 +837,37 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      ProductDocument,
+      ProductDocumentData,
+      ProductDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
-      RichTextSlice,
-      RichTextSliceDefaultPrimary,
-      RichTextSliceVariation,
-      RichTextSliceDefault,
+      CardGridSwiperSlice,
+      CardGridSwiperSliceDefaultPrimaryCard1Item,
+      CardGridSwiperSliceDefaultPrimaryCard2Item,
+      CardGridSwiperSliceDefaultPrimaryCard3Item,
+      CardGridSwiperSliceDefaultPrimaryButtonLinkItem,
+      CardGridSwiperSliceDefaultPrimary,
+      CardGridSwiperSliceVariation,
+      CardGridSwiperSliceDefault,
+      CardImageSlice,
+      CardImageSliceDefaultPrimaryCardItem,
+      CardImageSliceDefaultPrimary,
+      CardImageSliceVariation,
+      CardImageSliceDefault,
+      HeroBannerSlice,
+      HeroBannerSliceDefaultPrimary,
+      HeroBannerSliceVariation,
+      HeroBannerSliceDefault,
+      MainDescriptionSlice,
+      MainDescriptionSliceDefaultPrimary,
+      MainDescriptionSliceVariation,
+      MainDescriptionSliceDefault,
+      SingleProductSlice,
+      SingleProductSliceDefaultPrimary,
+      SingleProductSliceVariation,
+      SingleProductSliceDefault,
     };
   }
 }

@@ -1,7 +1,7 @@
 {
-  "id": "page",
-  "label": "Page",
   "format": "page",
+  "id": "product",
+  "label": "Product",
   "repeatable": true,
   "status": true,
   "json": {
@@ -9,8 +9,7 @@
       "uid": {
         "type": "UID",
         "config": {
-          "label": "UID",
-          "placeholder": ""
+          "label": "UID"
         }
       },
       "title": {
@@ -19,7 +18,7 @@
           "label": "Title",
           "placeholder": "",
           "allowTargetBlank": true,
-          "single": "heading1"
+          "single": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
       "slices": {
@@ -27,47 +26,38 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "card_grid_swiper": {
-              "type": "SharedSlice"
-            },
-            "card_image": {
-              "type": "SharedSlice"
-            },
-            "main_description": {
-              "type": "SharedSlice"
-            },
-            "hero_banner": {
+            "single_product": {
               "type": "SharedSlice"
             }
           }
         }
       }
     },
-    "SEO": {
+    "SEO & Metadata": {
       "meta_title": {
-        "type": "Text",
         "config": {
           "label": "Meta Title",
-          "placeholder": ""
-        }
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
       },
       "meta_description": {
-        "type": "Text",
         "config": {
           "label": "Meta Description",
-          "placeholder": ""
-        }
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
       },
       "meta_image": {
-        "type": "Image",
         "config": {
           "label": "Meta Image",
           "constraint": {
-            "width": 1280,
-            "height": 720
+            "height": 1260,
+            "width": 2400
           },
           "thumbnails": []
-        }
+        },
+        "type": "Image"
       }
     }
   }
