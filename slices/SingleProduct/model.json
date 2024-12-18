@@ -12,26 +12,15 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "title": {
-          "type": "Text",
+        "product": {
+          "type": "Link",
           "config": {
-            "label": "Title",
-            "placeholder": ""
-          }
-        },
-        "image": {
-          "type": "Image",
-          "config": {
-            "label": "Image",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
-        "price": {
-          "type": "Number",
-          "config": {
-            "label": "Price",
-            "placeholder": ""
+            "label": "Product",
+            "select": "document",
+            "repeat": false,
+            "customtypes": [
+              "product_properties"
+            ]
           }
         }
       },

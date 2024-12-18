@@ -20,3 +20,4 @@ useSeoMeta({
   ogImage: prismic.asImageSrc(page.value?.data.meta_image) ?? undefined,
 })
 </script>
+

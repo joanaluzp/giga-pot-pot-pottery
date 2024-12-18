@@ -184,13 +184,35 @@ interface ProductDocumentData {
   /**
    * Title field in *Product*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: product.title
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  title: prismic.RichTextField;
+  title: prismic.KeyTextField;
+
+  /**
+   * Image field in *Product*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Price field in *Product*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.price
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  price: prismic.NumberField;
 
   /**
    * Slice Zone field in *Product*
@@ -205,9 +227,9 @@ interface ProductDocumentData {
    * Meta Title field in *Product*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **Placeholder**: *None*
    * - **API ID Path**: product.meta_title
-   * - **Tab**: SEO & Metadata
+   * - **Tab**: SEO
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */;
   meta_title: prismic.KeyTextField;
@@ -216,9 +238,9 @@ interface ProductDocumentData {
    * Meta Description field in *Product*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
+   * - **Placeholder**: *None*
    * - **API ID Path**: product.meta_description
-   * - **Tab**: SEO & Metadata
+   * - **Tab**: SEO
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_description: prismic.KeyTextField;
@@ -229,7 +251,7 @@ interface ProductDocumentData {
    * - **Field Type**: Image
    * - **Placeholder**: *None*
    * - **API ID Path**: product.meta_image
-   * - **Tab**: SEO & Metadata
+   * - **Tab**: SEO
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   meta_image: prismic.ImageField<never>;
@@ -559,44 +581,14 @@ export type CardGridSwiperSlice = prismic.SharedSlice<
  */
 export interface CardImageSliceDefaultPrimaryCardItem {
   /**
-   * Link field in *CardGridBig → Default → Primary → Card*
+   * Product Properties field in *CardGridBig → Default → Primary → Card*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: card_image.default.primary.card[].link
+   * - **API ID Path**: card_image.default.primary.card[].product_properties
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.LinkField;
-
-  /**
-   * Image field in *CardGridBig → Default → Primary → Card*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: card_image.default.primary.card[].image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * Title field in *CardGridBig → Default → Primary → Card*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: card_image.default.primary.card[].title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Price field in *CardGridBig → Default → Primary → Card*
-   *
-   * - **Field Type**: Number
-   * - **Placeholder**: *None*
-   * - **API ID Path**: card_image.default.primary.card[].price
-   * - **Documentation**: https://prismic.io/docs/field#number
-   */
-  price: prismic.NumberField;
+  product_properties: prismic.ContentRelationshipField<"product_properties">;
 }
 
 /**
@@ -749,34 +741,14 @@ export type MainDescriptionSlice = prismic.SharedSlice<
  */
 export interface SingleProductSliceDefaultPrimary {
   /**
-   * Title field in *SingleProduct → Default → Primary*
+   * Product field in *SingleProduct → Default → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: single_product.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: single_product.default.primary.product
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  title: prismic.KeyTextField;
-
-  /**
-   * Image field in *SingleProduct → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: single_product.default.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * Price field in *SingleProduct → Default → Primary*
-   *
-   * - **Field Type**: Number
-   * - **Placeholder**: *None*
-   * - **API ID Path**: single_product.default.primary.price
-   * - **Documentation**: https://prismic.io/docs/field#number
-   */
-  price: prismic.NumberField;
+  product: prismic.ContentRelationshipField<"product_properties">;
 }
 
 /**

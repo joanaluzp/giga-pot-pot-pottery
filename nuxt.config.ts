@@ -32,6 +32,10 @@ export default defineNuxtConfig({
           path: "/:uid",
         },
         {
+          type: "product",
+          path: "/:uid",
+        },
+        {
           type: "page",
           uid: "home",
           path: "/",

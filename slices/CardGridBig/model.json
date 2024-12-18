@@ -18,40 +18,15 @@
             "label": "Card",
             "repeat": true,
             "fields": {
-              "link": {
+              "product_properties": {
                 "type": "Link",
                 "config": {
-                  "label": "Link",
-                  "placeholder": "",
-                  "select": null,
-                  "allowTargetBlank": false,
-                  "allowText": false,
-                  "repeat": false
-                }
-              },
-              "image": {
-                "type": "Image",
-                "config": {
-                  "label": "Image",
-                  "constraint": {
-                    "width": null,
-                    "height": null
-                  },
-                  "thumbnails": []
-                }
-              },
-              "title": {
-                "type": "Text",
-                "config": {
-                  "label": "Title",
-                  "placeholder": ""
-                }
-              },
-              "price": {
-                "type": "Number",
-                "config": {
-                  "label": "Price",
-                  "placeholder": ""
+                  "label": "Product Properties",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    "product_properties"
+                  ]
                 }
               }
             }

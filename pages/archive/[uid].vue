@@ -7,9 +7,11 @@
 
 <script setup lang="ts">
 import { components } from '~/slices'
+
 const prismic = usePrismic();
-const { data: page } = useAsyncData('archive', () =>
-  prismic.client.getByUID('page', 'archive')
+const route = useRoute();
+const { data: page } = useAsyncData(route.params.uid as string, () =>
+  prismic.client.getByUID('product', route.params.uid as string)
 )
 
 useSeoMeta({
@@ -18,3 +20,4 @@ useSeoMeta({
   ogImage: prismic.asImageSrc(page.value?.data.meta_image) ?? undefined,
 })
 </script>
+
