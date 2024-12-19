@@ -2,7 +2,7 @@
   "id": "card_grid_swiper",
   "type": "SharedSlice",
   "name": "CardGridSmall",
-  "description": "CardGridSwiper",
+  "description": "CardGridSmall",
   "variations": [
     {
       "id": "default",

@@ -2,7 +2,7 @@
   "id": "card_image",
   "type": "SharedSlice",
   "name": "CardGridBig",
-  "description": "CardImage",
+  "description": "CardGridBig",
   "variations": [
     {
       "id": "default",
@@ -16,7 +16,7 @@
           "type": "Group",
           "config": {
             "label": "Card",
-            "repeat": false,
+            "repeat": true,
             "fields": {
               "product": {
                 "type": "Link",

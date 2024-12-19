@@ -9,7 +9,7 @@ defineProps(
     "index",
     "slices",
     "context",
-  ]),
+  ])
 );
 </script>
 
@@ -18,7 +18,7 @@ defineProps(
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >
-  {{ slice.primary.title }}
-  {{ slice.primary.description }}
+    {{ slice.primary.title }}
+    {{ slice.primary.description }}
   </section>
 </template>

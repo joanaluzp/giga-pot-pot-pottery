@@ -9,7 +9,7 @@ defineProps(
     "index",
     "slices",
     "context",
-  ]),
+  ])
 );
 </script>
 
@@ -18,6 +18,6 @@ defineProps(
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >
-  <PrismicImage :field="slice.primary.hero_image" />
+    <PrismicImage :field="slice.primary.hero_image" />
   </section>
 </template>

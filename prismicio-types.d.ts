@@ -100,8 +100,8 @@ export type FooterDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
-  | CardGridSwiperSlice
-  | CardImageSlice
+  | CardGridSmallSlice
+  | CardGridBigSlice
   | MainDescriptionSlice
   | HeroBannerSlice;
 
@@ -193,15 +193,37 @@ interface ProductDocumentData {
   title: prismic.KeyTextField;
 
   /**
-   * Image field in *Product*
+   * Image 1 field in *Product*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: product.image
+   * - **API ID Path**: product.image_1
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  image: prismic.ImageField<never>;
+  image_1: prismic.ImageField<never>;
+
+  /**
+   * Image 2 field in *Product*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.image_2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_2: prismic.ImageField<never>;
+
+  /**
+   * Image 3 field in *Product*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.image_3
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image_3: prismic.ImageField<never>;
 
   /**
    * Price field in *Product*
@@ -336,7 +358,7 @@ export type AllDocumentTypes =
 /**
  * Item in *CardGridSmall → Default → Primary → Card 1*
  */
-export interface CardGridSwiperSliceDefaultPrimaryCard1Item {
+export interface CardGridSmallSliceDefaultPrimaryCard1Item {
   /**
    * Product field in *CardGridSmall → Default → Primary → Card 1*
    *
@@ -351,7 +373,7 @@ export interface CardGridSwiperSliceDefaultPrimaryCard1Item {
 /**
  * Item in *CardGridSmall → Default → Primary → Card 2*
  */
-export interface CardGridSwiperSliceDefaultPrimaryCard2Item {
+export interface CardGridSmallSliceDefaultPrimaryCard2Item {
   /**
    * Product field in *CardGridSmall → Default → Primary → Card 2*
    *
@@ -366,7 +388,7 @@ export interface CardGridSwiperSliceDefaultPrimaryCard2Item {
 /**
  * Item in *CardGridSmall → Default → Primary → Card 3*
  */
-export interface CardGridSwiperSliceDefaultPrimaryCard3Item {
+export interface CardGridSmallSliceDefaultPrimaryCard3Item {
   /**
    * Product field in *CardGridSmall → Default → Primary → Card 3*
    *
@@ -381,7 +403,7 @@ export interface CardGridSwiperSliceDefaultPrimaryCard3Item {
 /**
  * Item in *CardGridSmall → Default → Primary → Button Link*
  */
-export interface CardGridSwiperSliceDefaultPrimaryButtonLinkItem {
+export interface CardGridSmallSliceDefaultPrimaryButtonLinkItem {
   /**
    * Link field in *CardGridSmall → Default → Primary → Button Link*
    *
@@ -406,7 +428,7 @@ export interface CardGridSwiperSliceDefaultPrimaryButtonLinkItem {
 /**
  * Primary content in *CardGridSmall → Default → Primary*
  */
-export interface CardGridSwiperSliceDefaultPrimary {
+export interface CardGridSmallSliceDefaultPrimary {
   /**
    * Card 1 field in *CardGridSmall → Default → Primary*
    *
@@ -416,7 +438,7 @@ export interface CardGridSwiperSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   card_1: prismic.GroupField<
-    Simplify<CardGridSwiperSliceDefaultPrimaryCard1Item>
+    Simplify<CardGridSmallSliceDefaultPrimaryCard1Item>
   >;
 
   /**
@@ -428,7 +450,7 @@ export interface CardGridSwiperSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   card_2: prismic.GroupField<
-    Simplify<CardGridSwiperSliceDefaultPrimaryCard2Item>
+    Simplify<CardGridSmallSliceDefaultPrimaryCard2Item>
   >;
 
   /**
@@ -440,7 +462,7 @@ export interface CardGridSwiperSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   card_3: prismic.GroupField<
-    Simplify<CardGridSwiperSliceDefaultPrimaryCard3Item>
+    Simplify<CardGridSmallSliceDefaultPrimaryCard3Item>
   >;
 
   /**
@@ -452,7 +474,7 @@ export interface CardGridSwiperSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   button_link: prismic.GroupField<
-    Simplify<CardGridSwiperSliceDefaultPrimaryButtonLinkItem>
+    Simplify<CardGridSmallSliceDefaultPrimaryButtonLinkItem>
   >;
 }
 
@@ -463,33 +485,33 @@ export interface CardGridSwiperSliceDefaultPrimary {
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type CardGridSwiperSliceDefault = prismic.SharedSliceVariation<
+export type CardGridSmallSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<CardGridSwiperSliceDefaultPrimary>,
+  Simplify<CardGridSmallSliceDefaultPrimary>,
   never
 >;
 
 /**
  * Slice variation for *CardGridSmall*
  */
-type CardGridSwiperSliceVariation = CardGridSwiperSliceDefault;
+type CardGridSmallSliceVariation = CardGridSmallSliceDefault;
 
 /**
  * CardGridSmall Shared Slice
  *
  * - **API ID**: `card_grid_swiper`
- * - **Description**: CardGridSwiper
+ * - **Description**: CardGridSmall
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type CardGridSwiperSlice = prismic.SharedSlice<
+export type CardGridSmallSlice = prismic.SharedSlice<
   "card_grid_swiper",
-  CardGridSwiperSliceVariation
+  CardGridSmallSliceVariation
 >;
 
 /**
  * Item in *CardGridBig → Default → Primary → Card*
  */
-export interface CardImageSliceDefaultPrimaryCardItem {
+export interface CardGridBigSliceDefaultPrimaryCardItem {
   /**
    * Product field in *CardGridBig → Default → Primary → Card*
    *
@@ -504,7 +526,7 @@ export interface CardImageSliceDefaultPrimaryCardItem {
 /**
  * Primary content in *CardGridBig → Default → Primary*
  */
-export interface CardImageSliceDefaultPrimary {
+export interface CardGridBigSliceDefaultPrimary {
   /**
    * Card field in *CardGridBig → Default → Primary*
    *
@@ -513,7 +535,7 @@ export interface CardImageSliceDefaultPrimary {
    * - **API ID Path**: card_image.default.primary.card[]
    * - **Documentation**: https://prismic.io/docs/field#group
    */
-  card: prismic.GroupField<Simplify<CardImageSliceDefaultPrimaryCardItem>>;
+  card: prismic.GroupField<Simplify<CardGridBigSliceDefaultPrimaryCardItem>>;
 }
 
 /**
@@ -523,27 +545,27 @@ export interface CardImageSliceDefaultPrimary {
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type CardImageSliceDefault = prismic.SharedSliceVariation<
+export type CardGridBigSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<CardImageSliceDefaultPrimary>,
+  Simplify<CardGridBigSliceDefaultPrimary>,
   never
 >;
 
 /**
  * Slice variation for *CardGridBig*
  */
-type CardImageSliceVariation = CardImageSliceDefault;
+type CardGridBigSliceVariation = CardGridBigSliceDefault;
 
 /**
  * CardGridBig Shared Slice
  *
  * - **API ID**: `card_image`
- * - **Description**: CardImage
+ * - **Description**: CardGridBig
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type CardImageSlice = prismic.SharedSlice<
+export type CardGridBigSlice = prismic.SharedSlice<
   "card_image",
-  CardImageSliceVariation
+  CardGridBigSliceVariation
 >;
 
 /**
@@ -725,19 +747,19 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
-      CardGridSwiperSlice,
-      CardGridSwiperSliceDefaultPrimaryCard1Item,
-      CardGridSwiperSliceDefaultPrimaryCard2Item,
-      CardGridSwiperSliceDefaultPrimaryCard3Item,
-      CardGridSwiperSliceDefaultPrimaryButtonLinkItem,
-      CardGridSwiperSliceDefaultPrimary,
-      CardGridSwiperSliceVariation,
-      CardGridSwiperSliceDefault,
-      CardImageSlice,
-      CardImageSliceDefaultPrimaryCardItem,
-      CardImageSliceDefaultPrimary,
-      CardImageSliceVariation,
-      CardImageSliceDefault,
+      CardGridSmallSlice,
+      CardGridSmallSliceDefaultPrimaryCard1Item,
+      CardGridSmallSliceDefaultPrimaryCard2Item,
+      CardGridSmallSliceDefaultPrimaryCard3Item,
+      CardGridSmallSliceDefaultPrimaryButtonLinkItem,
+      CardGridSmallSliceDefaultPrimary,
+      CardGridSmallSliceVariation,
+      CardGridSmallSliceDefault,
+      CardGridBigSlice,
+      CardGridBigSliceDefaultPrimaryCardItem,
+      CardGridBigSliceDefaultPrimary,
+      CardGridBigSliceVariation,
+      CardGridBigSliceDefault,
       HeroBannerSlice,
       HeroBannerSliceDefaultPrimary,
       HeroBannerSliceVariation,

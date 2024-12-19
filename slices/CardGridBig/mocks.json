@@ -12,8 +12,8 @@
 							[
 								"product",
 								{
-									"__TYPE__": "LinkContent",
 									"key": "f1e90070-10e6-4c61-95b7-f68e0eafb105",
+									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "DocumentLink",
 										"id": "mock_document_id"
