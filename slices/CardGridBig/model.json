@@ -1,5 +1,5 @@
 {
-  "id": "card_image",
+  "id": "card_grid_big",
   "type": "SharedSlice",
   "name": "CardGridBig",
   "description": "CardGridBig",

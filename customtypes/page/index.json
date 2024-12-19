@@ -27,7 +27,10 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "card_image": {
+            "card_grid_big": {
+              "type": "SharedSlice"
+            },
+            "card_grid_small": {
               "type": "SharedSlice"
             },
             "main_description": {

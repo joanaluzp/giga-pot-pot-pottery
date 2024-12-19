@@ -5,7 +5,7 @@ import { useFormatPrice } from "~/composables/usePriceFormat";
 const { formatPrice } = useFormatPrice();
 
 const props = defineProps(
-  getSliceComponentProps<Content.CardGridBigSlice>([
+  getSliceComponentProps<Content.CardGridSmallSlice>([
     "slice",
     "index",
     "slices",
@@ -36,7 +36,11 @@ interface Product {
   };
 }
 
-const products = props.slice.primary.card as unknown as Product[];
+const products = [
+  ...(props.slice.primary.card_1 as Product[]),
+  ...(props.slice.primary.card_2 as Product[]),
+  ...(props.slice.primary.card_3 as Product[]),
+];
 </script>
 
 <template>
@@ -45,7 +49,7 @@ const products = props.slice.primary.card as unknown as Product[];
     :data-slice-variation="slice.variation"
     class="section-card-grid"
   >
-    <div class="card-grid-wrapper card-grid-big">
+    <div class="card-grid-wrapper card-grid-small">
       <div
         v-for="card in products"
         :key="card.product.id"
@@ -80,5 +84,10 @@ const products = props.slice.primary.card as unknown as Product[];
         </NuxtLink>
       </div>
     </div>
+    <template v-for="item in slice.primary.button_link">
+      <PrismicLink :field="item.link" v-if="item.link">
+        <p class="description-text">{{ item.title }}</p>
+      </PrismicLink>
+    </template>
   </section>
 </template>

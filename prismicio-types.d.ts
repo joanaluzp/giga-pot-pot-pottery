@@ -100,7 +100,8 @@ export type FooterDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
-  | CardImageSlice
+  | CardGridBigSlice
+  | CardGridSmallSlice
   | MainDescriptionSlice
   | HeroBannerSlice;
 
@@ -357,13 +358,13 @@ export type AllDocumentTypes =
 /**
  * Item in *CardGridBig → Default → Primary → Card*
  */
-export interface CardImageSliceDefaultPrimaryCardItem {
+export interface CardGridBigSliceDefaultPrimaryCardItem {
   /**
    * Product field in *CardGridBig → Default → Primary → Card*
    *
    * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: card_image.default.primary.card[].product
+   * - **API ID Path**: card_grid_big.default.primary.card[].product
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   product: prismic.ContentRelationshipField<"product">;
@@ -372,16 +373,16 @@ export interface CardImageSliceDefaultPrimaryCardItem {
 /**
  * Primary content in *CardGridBig → Default → Primary*
  */
-export interface CardImageSliceDefaultPrimary {
+export interface CardGridBigSliceDefaultPrimary {
   /**
    * Card field in *CardGridBig → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: card_image.default.primary.card[]
+   * - **API ID Path**: card_grid_big.default.primary.card[]
    * - **Documentation**: https://prismic.io/docs/field#group
    */
-  card: prismic.GroupField<Simplify<CardImageSliceDefaultPrimaryCardItem>>;
+  card: prismic.GroupField<Simplify<CardGridBigSliceDefaultPrimaryCardItem>>;
 }
 
 /**
@@ -391,27 +392,180 @@ export interface CardImageSliceDefaultPrimary {
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type CardImageSliceDefault = prismic.SharedSliceVariation<
+export type CardGridBigSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<CardImageSliceDefaultPrimary>,
+  Simplify<CardGridBigSliceDefaultPrimary>,
   never
 >;
 
 /**
  * Slice variation for *CardGridBig*
  */
-type CardImageSliceVariation = CardImageSliceDefault;
+type CardGridBigSliceVariation = CardGridBigSliceDefault;
 
 /**
  * CardGridBig Shared Slice
  *
- * - **API ID**: `card_image`
+ * - **API ID**: `card_grid_big`
  * - **Description**: CardGridBig
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type CardImageSlice = prismic.SharedSlice<
-  "card_image",
-  CardImageSliceVariation
+export type CardGridBigSlice = prismic.SharedSlice<
+  "card_grid_big",
+  CardGridBigSliceVariation
+>;
+
+/**
+ * Item in *CardGridSmall → Default → Primary → Card 1*
+ */
+export interface CardGridSmallSliceDefaultPrimaryCard1Item {
+  /**
+   * Product field in *CardGridSmall → Default → Primary → Card 1*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_small.default.primary.card_1[].product
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  product: prismic.ContentRelationshipField<"product">;
+}
+
+/**
+ * Item in *CardGridSmall → Default → Primary → Card 2*
+ */
+export interface CardGridSmallSliceDefaultPrimaryCard2Item {
+  /**
+   * Product field in *CardGridSmall → Default → Primary → Card 2*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_small.default.primary.card_2[].product
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  product: prismic.ContentRelationshipField<"product">;
+}
+
+/**
+ * Item in *CardGridSmall → Default → Primary → Card 3*
+ */
+export interface CardGridSmallSliceDefaultPrimaryCard3Item {
+  /**
+   * Product field in *CardGridSmall → Default → Primary → Card 3*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_small.default.primary.card_3[].product
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  product: prismic.ContentRelationshipField<"product">;
+}
+
+/**
+ * Item in *CardGridSmall → Default → Primary → Button Link*
+ */
+export interface CardGridSmallSliceDefaultPrimaryButtonLinkItem {
+  /**
+   * Link field in *CardGridSmall → Default → Primary → Button Link*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_small.default.primary.button_link[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Title field in *CardGridSmall → Default → Primary → Button Link*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_small.default.primary.button_link[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *CardGridSmall → Default → Primary*
+ */
+export interface CardGridSmallSliceDefaultPrimary {
+  /**
+   * Card 1 field in *CardGridSmall → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_small.default.primary.card_1[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  card_1: prismic.GroupField<
+    Simplify<CardGridSmallSliceDefaultPrimaryCard1Item>
+  >;
+
+  /**
+   * Card 2 field in *CardGridSmall → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_small.default.primary.card_2[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  card_2: prismic.GroupField<
+    Simplify<CardGridSmallSliceDefaultPrimaryCard2Item>
+  >;
+
+  /**
+   * Card 3 field in *CardGridSmall → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_small.default.primary.card_3[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  card_3: prismic.GroupField<
+    Simplify<CardGridSmallSliceDefaultPrimaryCard3Item>
+  >;
+
+  /**
+   * Button Link field in *CardGridSmall → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: card_grid_small.default.primary.button_link[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  button_link: prismic.GroupField<
+    Simplify<CardGridSmallSliceDefaultPrimaryButtonLinkItem>
+  >;
+}
+
+/**
+ * Default variation for CardGridSmall Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardGridSmallSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CardGridSmallSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CardGridSmall*
+ */
+type CardGridSmallSliceVariation = CardGridSmallSliceDefault;
+
+/**
+ * CardGridSmall Shared Slice
+ *
+ * - **API ID**: `card_grid_small`
+ * - **Description**: CardGridSmall
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CardGridSmallSlice = prismic.SharedSlice<
+  "card_grid_small",
+  CardGridSmallSliceVariation
 >;
 
 /**
@@ -613,11 +767,19 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
-      CardImageSlice,
-      CardImageSliceDefaultPrimaryCardItem,
-      CardImageSliceDefaultPrimary,
-      CardImageSliceVariation,
-      CardImageSliceDefault,
+      CardGridBigSlice,
+      CardGridBigSliceDefaultPrimaryCardItem,
+      CardGridBigSliceDefaultPrimary,
+      CardGridBigSliceVariation,
+      CardGridBigSliceDefault,
+      CardGridSmallSlice,
+      CardGridSmallSliceDefaultPrimaryCard1Item,
+      CardGridSmallSliceDefaultPrimaryCard2Item,
+      CardGridSmallSliceDefaultPrimaryCard3Item,
+      CardGridSmallSliceDefaultPrimaryButtonLinkItem,
+      CardGridSmallSliceDefaultPrimary,
+      CardGridSmallSliceVariation,
+      CardGridSmallSliceDefault,
       HeroBannerSlice,
       HeroBannerSliceDefaultPrimary,
       HeroBannerSliceVariation,

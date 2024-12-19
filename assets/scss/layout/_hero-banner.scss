@@ -1,5 +1,5 @@
 /*======HERO BANNER======*/
-.hero-banner-wrapper {
+.section-hero-banner {
   position: relative;
   width: 100%;
   .hero-banner-slide {
@@ -32,7 +32,7 @@
 @media (min-width: 576px) {
 }
 @media (min-width: 1200px) {
-  .hero-banner-wrapper {
+  .section-hero-banner {
     .hero-banner-slide {
       height: 70vh;
     }

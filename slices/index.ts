@@ -4,7 +4,10 @@ import { defineAsyncComponent } from "vue";
 import { defineSliceZoneComponents } from "@prismicio/vue";
 
 export const components = defineSliceZoneComponents({
-  card_image: defineAsyncComponent(() => import("./CardGridBig/index.vue")),
+  card_grid_big: defineAsyncComponent(() => import("./CardGridBig/index.vue")),
+  card_grid_small: defineAsyncComponent(
+    () => import("./CardGridSmall/index.vue"),
+  ),
   hero_banner: defineAsyncComponent(() => import("./HeroBanner/index.vue")),
   main_description: defineAsyncComponent(
     () => import("./MainDescription/index.vue"),

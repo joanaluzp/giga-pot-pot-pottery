@@ -17,7 +17,7 @@ defineProps(
   <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="hero-banner-wrapper"
+    class="section-hero-banner"
   >
     <swiper-container
       ref="containerRef"

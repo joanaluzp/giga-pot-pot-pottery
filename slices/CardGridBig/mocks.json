@@ -12,8 +12,8 @@
 							[
 								"product",
 								{
-									"key": "f1e90070-10e6-4c61-95b7-f68e0eafb105",
 									"__TYPE__": "LinkContent",
+									"key": "882f7d78-e98c-4eea-a983-89337d7d4300",
 									"value": {
 										"__TYPE__": "DocumentLink",
 										"id": "mock_document_id"
