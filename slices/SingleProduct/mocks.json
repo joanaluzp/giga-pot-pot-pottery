@@ -4,8 +4,8 @@
 		"variation": "default",
 		"primary": {
 			"product": {
+				"key": "c9ffc02d-762a-47e1-8c8c-5ec033e580cb",
 				"__TYPE__": "LinkContent",
-				"key": "233473ed-97cf-4696-a74f-2862e19e5c4a",
 				"value": {
 					"__TYPE__": "DocumentLink",
 					"id": "mock_document_id"

@@ -18,37 +18,15 @@
             "label": "Card 1",
             "repeat": false,
             "fields": {
-              "link": {
+              "product": {
                 "type": "Link",
                 "config": {
-                  "label": "Link",
-                  "placeholder": "",
-                  "select": null,
-                  "allowTargetBlank": false,
-                  "allowText": false,
-                  "repeat": false
-                }
-              },
-              "image": {
-                "type": "Image",
-                "config": {
-                  "label": "Image",
-                  "constraint": {},
-                  "thumbnails": []
-                }
-              },
-              "title": {
-                "type": "Text",
-                "config": {
-                  "label": "Title",
-                  "placeholder": ""
-                }
-              },
-              "price": {
-                "type": "Number",
-                "config": {
-                  "label": "Price",
-                  "placeholder": ""
+                  "label": "Product",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    "product"
+                  ]
                 }
               }
             }
@@ -60,37 +38,15 @@
             "label": "Card 2",
             "repeat": false,
             "fields": {
-              "link": {
+              "product": {
                 "type": "Link",
                 "config": {
-                  "label": "Link",
-                  "placeholder": "",
-                  "select": null,
-                  "allowTargetBlank": false,
-                  "allowText": false,
-                  "repeat": false
-                }
-              },
-              "image": {
-                "type": "Image",
-                "config": {
-                  "label": "Image",
-                  "constraint": {},
-                  "thumbnails": []
-                }
-              },
-              "title": {
-                "type": "Text",
-                "config": {
-                  "label": "Title",
-                  "placeholder": ""
-                }
-              },
-              "price": {
-                "type": "Number",
-                "config": {
-                  "label": "Price",
-                  "placeholder": ""
+                  "label": "Product",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    "product"
+                  ]
                 }
               }
             }
@@ -102,37 +58,15 @@
             "label": "Card 3",
             "repeat": false,
             "fields": {
-              "link": {
+              "product": {
                 "type": "Link",
                 "config": {
-                  "label": "Link",
-                  "placeholder": "",
-                  "select": null,
-                  "allowTargetBlank": false,
-                  "allowText": false,
-                  "repeat": false
-                }
-              },
-              "image": {
-                "type": "Image",
-                "config": {
-                  "label": "Image",
-                  "constraint": {},
-                  "thumbnails": []
-                }
-              },
-              "title": {
-                "type": "Text",
-                "config": {
-                  "label": "Title",
-                  "placeholder": ""
-                }
-              },
-              "price": {
-                "type": "Number",
-                "config": {
-                  "label": "Price",
-                  "placeholder": ""
+                  "label": "Product",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    "product"
+                  ]
                 }
               }
             }

@@ -16,16 +16,16 @@
           "type": "Group",
           "config": {
             "label": "Card",
-            "repeat": true,
+            "repeat": false,
             "fields": {
-              "product_properties": {
+              "product": {
                 "type": "Link",
                 "config": {
-                  "label": "Product Properties",
+                  "label": "Product",
                   "select": "document",
                   "repeat": false,
                   "customtypes": [
-                    "product_properties"
+                    "product"
                   ]
                 }
               }

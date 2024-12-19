@@ -18,8 +18,5 @@ defineProps(
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >
-  {{ slice.primary.title }}
-  {{ slice.primary.price }}
-  <PrismicImage :field="slice.primary.image" />
   </section>
 </template>

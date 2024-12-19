@@ -18,12 +18,5 @@ defineProps(
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >
-  <template v-for="item in slice.primary.card">
-      <PrismicLink :field="item.link">
-        <PrismicImage :field="item.image"/>
-        {{ item.title }}
-        {{ item.price }}
-      </PrismicLink>
-    </template>
   </section>
 </template>

@@ -338,44 +338,14 @@ export type AllDocumentTypes =
  */
 export interface CardGridSwiperSliceDefaultPrimaryCard1Item {
   /**
-   * Link field in *CardGridSmall → Default → Primary → Card 1*
+   * Product field in *CardGridSmall → Default → Primary → Card 1*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: card_grid_swiper.default.primary.card_1[].link
+   * - **API ID Path**: card_grid_swiper.default.primary.card_1[].product
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.LinkField;
-
-  /**
-   * Image field in *CardGridSmall → Default → Primary → Card 1*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: card_grid_swiper.default.primary.card_1[].image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * Title field in *CardGridSmall → Default → Primary → Card 1*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: card_grid_swiper.default.primary.card_1[].title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Price field in *CardGridSmall → Default → Primary → Card 1*
-   *
-   * - **Field Type**: Number
-   * - **Placeholder**: *None*
-   * - **API ID Path**: card_grid_swiper.default.primary.card_1[].price
-   * - **Documentation**: https://prismic.io/docs/field#number
-   */
-  price: prismic.NumberField;
+  product: prismic.ContentRelationshipField<"product">;
 }
 
 /**
@@ -383,44 +353,14 @@ export interface CardGridSwiperSliceDefaultPrimaryCard1Item {
  */
 export interface CardGridSwiperSliceDefaultPrimaryCard2Item {
   /**
-   * Link field in *CardGridSmall → Default → Primary → Card 2*
+   * Product field in *CardGridSmall → Default → Primary → Card 2*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: card_grid_swiper.default.primary.card_2[].link
+   * - **API ID Path**: card_grid_swiper.default.primary.card_2[].product
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.LinkField;
-
-  /**
-   * Image field in *CardGridSmall → Default → Primary → Card 2*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: card_grid_swiper.default.primary.card_2[].image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * Title field in *CardGridSmall → Default → Primary → Card 2*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: card_grid_swiper.default.primary.card_2[].title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Price field in *CardGridSmall → Default → Primary → Card 2*
-   *
-   * - **Field Type**: Number
-   * - **Placeholder**: *None*
-   * - **API ID Path**: card_grid_swiper.default.primary.card_2[].price
-   * - **Documentation**: https://prismic.io/docs/field#number
-   */
-  price: prismic.NumberField;
+  product: prismic.ContentRelationshipField<"product">;
 }
 
 /**
@@ -428,44 +368,14 @@ export interface CardGridSwiperSliceDefaultPrimaryCard2Item {
  */
 export interface CardGridSwiperSliceDefaultPrimaryCard3Item {
   /**
-   * Link field in *CardGridSmall → Default → Primary → Card 3*
+   * Product field in *CardGridSmall → Default → Primary → Card 3*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: card_grid_swiper.default.primary.card_3[].link
+   * - **API ID Path**: card_grid_swiper.default.primary.card_3[].product
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.LinkField;
-
-  /**
-   * Image field in *CardGridSmall → Default → Primary → Card 3*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: card_grid_swiper.default.primary.card_3[].image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * Title field in *CardGridSmall → Default → Primary → Card 3*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: card_grid_swiper.default.primary.card_3[].title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Price field in *CardGridSmall → Default → Primary → Card 3*
-   *
-   * - **Field Type**: Number
-   * - **Placeholder**: *None*
-   * - **API ID Path**: card_grid_swiper.default.primary.card_3[].price
-   * - **Documentation**: https://prismic.io/docs/field#number
-   */
-  price: prismic.NumberField;
+  product: prismic.ContentRelationshipField<"product">;
 }
 
 /**
@@ -581,14 +491,14 @@ export type CardGridSwiperSlice = prismic.SharedSlice<
  */
 export interface CardImageSliceDefaultPrimaryCardItem {
   /**
-   * Product Properties field in *CardGridBig → Default → Primary → Card*
+   * Product field in *CardGridBig → Default → Primary → Card*
    *
    * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: card_image.default.primary.card[].product_properties
+   * - **API ID Path**: card_image.default.primary.card[].product
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  product_properties: prismic.ContentRelationshipField<"product_properties">;
+  product: prismic.ContentRelationshipField<"product">;
 }
 
 /**
@@ -748,7 +658,7 @@ export interface SingleProductSliceDefaultPrimary {
    * - **API ID Path**: single_product.default.primary.product
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  product: prismic.ContentRelationshipField<"product_properties">;
+  product: prismic.ContentRelationshipField<"product">;
 }
 
 /**

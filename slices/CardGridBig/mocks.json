@@ -10,10 +10,10 @@
 						"__TYPE__": "GroupItemContent",
 						"value": [
 							[
-								"product_properties",
+								"product",
 								{
 									"__TYPE__": "LinkContent",
-									"key": "e2ef065f-cd0d-4440-823d-08c9a0c5d96d",
+									"key": "f1e90070-10e6-4c61-95b7-f68e0eafb105",
 									"value": {
 										"__TYPE__": "DocumentLink",
 										"id": "mock_document_id"

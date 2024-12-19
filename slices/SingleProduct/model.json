@@ -19,7 +19,7 @@
             "select": "document",
             "repeat": false,
             "customtypes": [
-              "product_properties"
+              "product"
             ]
           }
         }
