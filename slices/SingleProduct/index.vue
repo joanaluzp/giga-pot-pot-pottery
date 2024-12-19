@@ -18,6 +18,10 @@ defineProps(
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >
-  {{ slice.primary.product.data.title }}
+<!--   {{ slice.primary.product.data.title }}
+  <img
+        :src="slice.primary.product.data.image_1.url"
+        :alt="slice.primary.product.data.image_1.alt || 'Product Image'"
+      /> -->
   </section>
 </template>

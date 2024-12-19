@@ -3,6 +3,8 @@
   display: block;
   word-break: break-word;
   width: 100%;
+  font-weight: 500;
+  line-height: 26px;
   font-family: $font-neue-haas-grotesk;
   text-align: left;
   margin: 0;
@@ -33,5 +35,10 @@
   }
   &.capitalize {
     text-transform: capitalize;
+  }
+}
+@media (min-width: 768px) {
+  .description-text {
+    line-height: 36px;
   }
 }

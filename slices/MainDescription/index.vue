@@ -14,11 +14,20 @@ defineProps(
 </script>
 
 <template>
-  <section
+  <div
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
+    class="d-flex flex-column main-description-wrapper"
   >
-    {{ slice.primary.title }}
-    {{ slice.primary.description }}
-  </section>
+    <div class="container">
+      <div class="col-12">
+        <h1 class="description-text text-center">
+          {{ slice.primary.title }}
+        </h1>
+        <h2 class="description-text text-center grey">
+          {{ slice.primary.description }}
+        </h2>
+      </div>
+    </div>
+  </div>
 </template>

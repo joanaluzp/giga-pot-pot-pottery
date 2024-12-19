@@ -1,0 +1,60 @@
+/*======CARD GRID======*/
+.card-grid-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 20px;
+  .card-grid-product {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    .card-product-img-wrapper {
+      width: 100%;
+      height: 100%;
+      .card-product-img {
+        @include transition;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+      }
+    }
+    .card-product-info-wrapper {
+      position: absolute;
+      z-index: 2;
+      left: 18px;
+      bottom: 14px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .card-grid-wrapper {
+    grid-template-columns: 1fr 1fr;
+    .card-grid-product {
+      height: 634px;
+      aspect-ratio: auto;
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .card-grid-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+    &.card-grid-big {
+      .card-grid-product {
+        @include transition;
+        &:hover {
+          z-index: 3;
+          transform: scale(1.3);
+          .card-product-img-wrapper {
+            .card-product-img {
+              border-radius: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

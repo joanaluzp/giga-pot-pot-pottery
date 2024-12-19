@@ -10,10 +10,8 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-weight: 500;
-  line-height: 36px;
   @include transition2(all, 0.5s, ease-in-out);
-  @include fluid-type(320px, 992px, 24px, 36px);
+  @include fluid-type(320px, 768px, 20px, 36px);
   overflow-x: hidden;
   color: $black;
   scroll-behavior: smooth;
@@ -41,6 +39,13 @@ body {
 a {
   text-decoration: none;
   color: $black;
+}
+.main-description-wrapper{
+  margin-top: 15px;
+  margin-bottom: 40px;
+  @media (min-width: 1200px) {
+    margin-bottom: 120px;
+  }
 }
 @keyframes shake {
   0% {
