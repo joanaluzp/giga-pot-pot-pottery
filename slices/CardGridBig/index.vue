@@ -25,6 +25,14 @@ interface Product {
         url: string;
         alt?: string;
       };
+      image_2: {
+        url: string;
+        alt?: string;
+      };
+      image_3: {
+        url: string;
+        alt?: string;
+      };
     };
   };
 }
@@ -44,7 +52,7 @@ const products = props.slice.primary.card as unknown as Product[];
       class="card-grid-product"
     >
       <NuxtLink
-        :to="`/archive/${product.product.data.uid}`"
+        :to="{ path: '/archive/' + product.product.data.uid }"
         class="card-product-link"
       >
         <div class="card-product-img-wrapper">

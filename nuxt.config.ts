@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxtjs/prismic"],
+  modules: ["@nuxtjs/prismic", "nuxt-swiper"],
   css: ["@/assets/scss/style.scss"],
   prismic: {
     endpoint: apiEndpoint || repositoryName,

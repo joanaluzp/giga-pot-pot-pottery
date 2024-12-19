@@ -27,9 +27,6 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "card_grid_swiper": {
-              "type": "SharedSlice"
-            },
             "card_image": {
               "type": "SharedSlice"
             },

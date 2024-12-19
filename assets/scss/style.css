@@ -3321,7 +3321,7 @@ body {
   margin: 0;
   padding: 0;
   position: relative;
-  font-family: "Neue Haas Grotesk", sans-serif;
+  font-family: "Neue Haas Grotesk", sans-serif, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -3366,6 +3366,22 @@ body .main {
   position: relative;
   min-height: 100vh;
 }
+html a,
+body a {
+  text-decoration: none;
+  color: #000000;
+}
+html .main-description-wrapper,
+body .main-description-wrapper {
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+@media (min-width: 1200px) {
+  html .main-description-wrapper,
+  body .main-description-wrapper {
+    margin-bottom: 120px;
+  }
+}
 
 ::-moz-selection {
   color: #ffffff;
@@ -3375,21 +3391,6 @@ body .main {
 ::selection {
   color: #ffffff;
   background: #000000;
-}
-
-a {
-  text-decoration: none;
-  color: #000000;
-}
-
-.main-description-wrapper {
-  margin-top: 15px;
-  margin-bottom: 40px;
-}
-@media (min-width: 1200px) {
-  .main-description-wrapper {
-    margin-bottom: 120px;
-  }
 }
 
 @keyframes shake {
@@ -3420,7 +3421,7 @@ a {
 
 @media (min-width: 992px) {
   .footer {
-    padding: 120px 20px 16px 20px;
+    padding: 120px 20px 15px 20px;
   }
   .footer-left .footer-left-link:hover {
     text-decoration: underline;
@@ -3433,6 +3434,91 @@ a {
   }
   .footer-right .footer-right-link:hover .description-text {
     color: #000000;
+  }
+}
+/*======SINGLE PRODUCT======*/
+.single-product-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.single-product-wrapper .single-product-btn {
+  position: absolute;
+  padding: 15px 20px;
+  top: 0;
+  right: 0;
+}
+.single-product-wrapper .single-product-img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.single-product-wrapper .single-product-img-wrapper .single-product-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+}
+.single-product-wrapper .single-product-info-wrapper {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 15px 20px;
+}
+
+@media (min-width: 576px) {
+  .single-product-wrapper .single-product-img-wrapper {
+    padding: 20px;
+  }
+  .single-product-wrapper .single-product-img-wrapper .single-product-img {
+    width: 90%;
+    max-width: 860px;
+  }
+}
+/*======HERO BANNER======*/
+.hero-banner-wrapper {
+  position: relative;
+  width: 100%;
+}
+.hero-banner-wrapper .hero-banner-slide {
+  width: 100%;
+  height: 100vh;
+}
+.hero-banner-wrapper .hero-banner-slide .hero-banner-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+}
+.hero-banner-wrapper .hero-banner-swiper-btn {
+  overflow: hidden;
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  padding: 0 20px;
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+.hero-banner-wrapper .hero-banner-swiper-btn .btn-swiper {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+@media (min-width: 1200px) {
+  .hero-banner-wrapper .hero-banner-slide {
+    height: 70vh;
   }
 }
 /*======CARD GRID======*/

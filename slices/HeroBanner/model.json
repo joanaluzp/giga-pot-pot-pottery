@@ -12,14 +12,30 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "hero_image": {
+        "hero_image_1": {
           "type": "Image",
           "config": {
-            "label": "Hero Image",
+            "label": "Hero Image 1",
             "constraint": {
               "width": 1440,
               "height": 654
             },
+            "thumbnails": []
+          }
+        },
+        "hero_image_2": {
+          "type": "Image",
+          "config": {
+            "label": "Hero Image 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "hero_image_3": {
+          "type": "Image",
+          "config": {
+            "label": "Hero Image 3",
+            "constraint": {},
             "thumbnails": []
           }
         }

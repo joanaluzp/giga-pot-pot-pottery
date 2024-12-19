@@ -17,7 +17,7 @@ defineProps(
   <div
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="d-flex flex-column main-description-wrapper"
+    class="main-description-wrapper d-flex flex-column"
   >
     <div class="container">
       <div class="col-12">

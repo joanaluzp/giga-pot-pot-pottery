@@ -6,7 +6,7 @@ body {
   margin: 0;
   padding: 0;
   position: relative;
-  font-family: $font-neue-haas-grotesk;
+  font-family: $font-neue-haas-grotesk, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -31,21 +31,21 @@ body {
     position: relative;
     min-height: 100vh;
   }
+  a {
+    text-decoration: none;
+    color: $black;
+  }
+  .main-description-wrapper {
+    margin-top: 15px;
+    margin-bottom: 40px;
+    @media (min-width: 1200px) {
+      margin-bottom: 120px;
+    }
+  }
 }
 ::selection {
   color: $white;
   background: $black;
-}
-a {
-  text-decoration: none;
-  color: $black;
-}
-.main-description-wrapper{
-  margin-top: 15px;
-  margin-bottom: 40px;
-  @media (min-width: 1200px) {
-    margin-bottom: 120px;
-  }
 }
 @keyframes shake {
   0% {
