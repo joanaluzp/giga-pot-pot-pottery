@@ -37,7 +37,7 @@ const product = props.slice.primary.product as unknown as {
   <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="single-product-wrapper"
+    class="section-single-product"
   >
     <div class="single-product-btn">
       <NuxtLink :to="{ path: '/archive/' }"

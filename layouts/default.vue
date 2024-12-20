@@ -9,11 +9,17 @@
 
 <script setup>
 import { useRoute } from 'vue-router';
+import { ref, watch } from 'vue';
 
 const settings = useSettings();
 const { asImageSrc } = usePrismic();
 const route = useRoute();
-const isProductPage = /^\/archive\/[^/]+$/.test(route.path);
+
+const isProductPage = ref(false);
+
+watch(() => route.path, (newPath) => {
+  isProductPage.value = /^\/archive\/[^/]+$/.test(newPath);
+}, { immediate: true });
 
 useSeoMeta({
   title: settings.value?.data.site_title,
@@ -21,3 +27,4 @@ useSeoMeta({
   ogImage: asImageSrc(settings.value?.data.meta_image),
 });
 </script>
+

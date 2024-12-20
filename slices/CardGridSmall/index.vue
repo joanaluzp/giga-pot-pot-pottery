@@ -4,6 +4,7 @@ import { useFormatPrice } from "~/composables/usePriceFormat";
 
 const { formatPrice } = useFormatPrice();
 
+const containerRef = ref(null);
 const props = defineProps(
   getSliceComponentProps<Content.CardGridSmallSlice>([
     "slice",
@@ -49,7 +50,53 @@ const products = [
     :data-slice-variation="slice.variation"
     class="section-card-grid"
   >
-    <div class="card-grid-wrapper card-grid-small">
+    <!--MOBILE/TABLET-->
+
+    <div class="card-grid-swiper d-xl-none">
+      <swiper-container
+        ref="containerRef"
+        :loop="true"
+        :speed="1000"
+        :slides-per-view="1"
+        :breakpoints="{ 576: { slidesPerView: 2 } }"
+      >
+        <swiper-slide v-for="card in products" :key="card.product.id">
+          <div class="card-grid-product">
+            <NuxtLink
+              :to="{ path: '/archive/' + card.product.data.uid }"
+              class="card-product-link"
+            >
+              <div class="card-product-img-wrapper">
+                <img
+                  class="card-product-img"
+                  :src="card.product.data.image_1.url"
+                  :alt="card.product.data.image_1.alt || 'Product Image'"
+                  v-if="card.product.data.image_1"
+                />
+              </div>
+              <div class="card-product-info-wrapper">
+                <h2
+                  class="description-text card-product-title"
+                  v-if="card.product.data.title"
+                >
+                  {{ card.product.data.title }}
+                </h2>
+                <p
+                  class="description-text card-product-price"
+                  v-if="card.product.data.price"
+                >
+                  € {{ formatPrice(card.product.data.price) }}
+                </p>
+              </div>
+            </NuxtLink>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+
+    <!--DESKTOP -->
+
+    <div class="card-grid-wrapper card-grid-small d-none d-xl-grid">
       <div
         v-for="card in products"
         :key="card.product.id"
@@ -85,9 +132,17 @@ const products = [
       </div>
     </div>
     <template v-for="item in slice.primary.button_link">
-      <PrismicLink :field="item.link" v-if="item.link">
-        <p class="description-text">{{ item.title }}</p>
-      </PrismicLink>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center">
+            <PrismicLink :field="item.link" v-if="item.link">
+              <p class="description-text text-center d-inline">
+                {{ item.title }}
+              </p>
+            </PrismicLink>
+          </div>
+        </div>
+      </div>
     </template>
   </section>
 </template>

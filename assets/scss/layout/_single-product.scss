@@ -1,5 +1,5 @@
 /*======SINGLE PRODUCT======*/
-.single-product-wrapper {
+.section-single-product {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -34,7 +34,7 @@
 }
 
 @media (min-width: 576px) {
-  .single-product-wrapper {
+  .section-single-product {
     .single-product-img-wrapper {
       padding: 20px;
       .single-product-img {

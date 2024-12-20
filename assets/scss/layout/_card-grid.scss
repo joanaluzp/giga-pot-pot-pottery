@@ -29,7 +29,31 @@
     }
   }
 }
-
+.card-grid-swiper {
+  .card-grid-product {
+    position: relative;
+    transform: scale(0.9);
+    .card-product-img-wrapper {
+      width: 100%;
+      height: 70vh;
+      max-height: 634px;
+      .card-product-img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 30px;
+        object-position: center center;
+      }
+    }
+    .card-product-info-wrapper {
+      position: absolute;
+      z-index: 2;
+      left: 18px;
+      bottom: 14px;
+    }
+  }
+}
 @media (min-width: 768px) {
   .card-grid-wrapper {
     grid-template-columns: 1fr 1fr;
