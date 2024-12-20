@@ -9,11 +9,11 @@
     width: 100%;
     height: 100%;
     aspect-ratio: 1 / 1;
+    @include transition;
     .card-product-img-wrapper {
       width: 100%;
       height: 100%;
       .card-product-img {
-        @include transition;
         display: block;
         width: 100%;
         height: 100%;
@@ -68,10 +68,22 @@
     grid-template-columns: 1fr 1fr 1fr;
     &.card-grid-big {
       .card-grid-product {
-        @include transition;
         &:hover {
           z-index: 3;
-          transform: scale(1.3);
+          animation: shake 0.3s ease infinite;
+          .card-product-img-wrapper {
+            .card-product-img {
+              border-radius: 30px;
+            }
+          }
+        }
+      }
+    }
+    &.card-grid-small {
+      .card-grid-product {
+        &:hover {
+          z-index: 3;
+          animation: spin 1s ease;
           .card-product-img-wrapper {
             .card-product-img {
               border-radius: 30px;

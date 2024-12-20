@@ -3382,6 +3382,23 @@ body .section-main-description {
     margin-bottom: 120px;
   }
 }
+html .scale-hover-btn-wrapper,
+body .scale-hover-btn-wrapper {
+  position: relative;
+  z-index: 5;
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -moz-user-select: none;
+       user-select: none; /* Standard syntax */
+}
+html .scale-hover-btn-wrapper .scale-hover-btn-link,
+body .scale-hover-btn-wrapper .scale-hover-btn-link {
+  display: inline-block;
+  transition: all 0.1s ease-in-out;
+}
+html .scale-hover-btn-wrapper .scale-hover-btn-link:hover,
+body .scale-hover-btn-wrapper .scale-hover-btn-link:hover {
+  transform: skew(20deg, 20deg) scale(2);
+}
 
 ::-moz-selection {
   color: #ffffff;
@@ -3408,6 +3425,22 @@ body .section-main-description {
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
   }
 }
 /*======FOOTER======*/
@@ -3482,6 +3515,14 @@ body .section-main-description {
     max-width: 860px;
   }
 }
+@media (min-width: 1200px) {
+  .section-single-product .single-product-img-wrapper .single-product-img {
+    transition: all 0.3s ease-in-out;
+  }
+  .section-single-product .single-product-img-wrapper .single-product-img:hover {
+    transform: scale(2);
+  }
+}
 /*======HERO BANNER======*/
 .section-hero-banner {
   position: relative;
@@ -3510,6 +3551,9 @@ body .section-main-description {
   z-index: 2;
   top: 0;
   left: 0;
+  -webkit-user-select: none; /* Safari */ /* IE 10 and IE 11 */
+  -moz-user-select: none;
+       user-select: none; /* Standard syntax */
 }
 .section-hero-banner .hero-banner-swiper-btn .btn-swiper {
   pointer-events: auto;
@@ -3533,13 +3577,13 @@ body .section-main-description {
   width: 100%;
   height: 100%;
   aspect-ratio: 1/1;
+  transition: all 0.3s ease-in-out;
 }
 .card-grid-wrapper .card-grid-product .card-product-img-wrapper {
   width: 100%;
   height: 100%;
 }
 .card-grid-wrapper .card-grid-product .card-product-img-wrapper .card-product-img {
-  transition: all 0.3s ease-in-out;
   display: block;
   width: 100%;
   height: 100%;
@@ -3594,14 +3638,18 @@ body .section-main-description {
   .card-grid-wrapper {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  .card-grid-wrapper.card-grid-big .card-grid-product {
-    transition: all 0.3s ease-in-out;
-  }
   .card-grid-wrapper.card-grid-big .card-grid-product:hover {
     z-index: 3;
-    transform: scale(1.3);
+    animation: shake 0.3s ease infinite;
   }
   .card-grid-wrapper.card-grid-big .card-grid-product:hover .card-product-img-wrapper .card-product-img {
+    border-radius: 30px;
+  }
+  .card-grid-wrapper.card-grid-small .card-grid-product:hover {
+    z-index: 3;
+    animation: spin 1s ease;
+  }
+  .card-grid-wrapper.card-grid-small .card-grid-product:hover .card-product-img-wrapper .card-product-img {
     border-radius: 30px;
   }
 }/*# sourceMappingURL=style.css.map */

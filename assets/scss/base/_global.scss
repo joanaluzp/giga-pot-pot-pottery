@@ -42,6 +42,20 @@ body {
       margin-bottom: 120px;
     }
   }
+  .scale-hover-btn-wrapper {
+    position: relative;
+    z-index: 5;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    .scale-hover-btn-link {
+      display: inline-block;
+      @include transition2(all, 0.1s, ease-in-out);
+      &:hover {
+        transform: skew(20deg, 20deg) scale(2);
+      }
+    }
+  }
 }
 ::selection {
   color: $white;
@@ -62,5 +76,25 @@ body {
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
   }
 }

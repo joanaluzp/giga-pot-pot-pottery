@@ -27,4 +27,3 @@ useSeoMeta({
   ogImage: asImageSrc(settings.value?.data.meta_image),
 });
 </script>
-

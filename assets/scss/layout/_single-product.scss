@@ -44,3 +44,15 @@
     }
   }
 }
+@media (min-width: 1200px) {
+  .section-single-product {
+    .single-product-img-wrapper {
+      .single-product-img {
+        @include transition;
+        &:hover{
+          transform: scale(2);
+        }
+      }
+    }
+  }
+}

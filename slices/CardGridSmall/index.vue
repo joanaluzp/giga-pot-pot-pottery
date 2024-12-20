@@ -21,15 +21,7 @@ interface Product {
       title: string;
       price: number;
       uid: string;
-      image_1: {
-        url: string;
-        alt?: string;
-      };
-      image_2: {
-        url: string;
-        alt?: string;
-      };
-      image_3: {
+      image: {
         url: string;
         alt?: string;
       };
@@ -69,9 +61,9 @@ const products = [
               <div class="card-product-img-wrapper">
                 <img
                   class="card-product-img"
-                  :src="card.product.data.image_1.url"
-                  :alt="card.product.data.image_1.alt || 'Product Image'"
-                  v-if="card.product.data.image_1"
+                  :src="card.product.data.image.url"
+                  :alt="card.product.data.image.alt || 'Product Image'"
+                  v-if="card.product.data.image"
                 />
               </div>
               <div class="card-product-info-wrapper">
@@ -109,9 +101,9 @@ const products = [
           <div class="card-product-img-wrapper">
             <img
               class="card-product-img"
-              :src="card.product.data.image_1.url"
-              :alt="card.product.data.image_1.alt || 'Product Image'"
-              v-if="card.product.data.image_1"
+              :src="card.product.data.image.url"
+              :alt="card.product.data.image.alt || 'Product Image'"
+              v-if="card.product.data.image"
             />
           </div>
           <div class="card-product-info-wrapper">
@@ -132,10 +124,14 @@ const products = [
       </div>
     </div>
     <template v-for="item in slice.primary.button_link">
-      <div class="container">
+      <div class="container scale-hover-btn-wrapper">
         <div class="row">
           <div class="col-12 d-flex justify-content-center">
-            <PrismicLink :field="item.link" v-if="item.link">
+            <PrismicLink
+              :field="item.link"
+              v-if="item.link"
+              class="scale-hover-btn-link"
+            >
               <p class="description-text text-center d-inline">
                 {{ item.title }}
               </p>

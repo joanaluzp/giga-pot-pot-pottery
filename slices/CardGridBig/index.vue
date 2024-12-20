@@ -20,15 +20,7 @@ interface Product {
       title: string;
       price: number;
       uid: string;
-      image_1: {
-        url: string;
-        alt?: string;
-      };
-      image_2: {
-        url: string;
-        alt?: string;
-      };
-      image_3: {
+      image: {
         url: string;
         alt?: string;
       };
@@ -58,9 +50,9 @@ const products = props.slice.primary.card as unknown as Product[];
           <div class="card-product-img-wrapper">
             <img
               class="card-product-img"
-              :src="card.product.data.image_1.url"
-              :alt="card.product.data.image_1.alt || 'Product Image'"
-              v-if="card.product.data.image_1"
+              :src="card.product.data.image.url"
+              :alt="card.product.data.image.alt || 'Product Image'"
+              v-if="card.product.data.image"
             />
           </div>
           <div class="card-product-info-wrapper">

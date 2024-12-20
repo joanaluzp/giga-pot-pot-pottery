@@ -17,15 +17,7 @@ const product = props.slice.primary.product as unknown as {
     title: string;
     price: number;
     uid: string;
-    image_1: {
-      url: string;
-      alt?: string;
-    };
-    image_2: {
-      url: string;
-      alt?: string;
-    };
-    image_3: {
+    image: {
       url: string;
       alt?: string;
     };
@@ -39,17 +31,17 @@ const product = props.slice.primary.product as unknown as {
     :data-slice-variation="slice.variation"
     class="section-single-product"
   >
-    <div class="single-product-btn">
-      <NuxtLink :to="{ path: '/archive/' }"
+    <div class="scale-hover-btn-wrapper single-product-btn">
+      <NuxtLink to="javascript:history.back()" class="scale-hover-btn-link"
         ><p class="description-text">Close</p></NuxtLink
       >
     </div>
     <div class="single-product-img-wrapper">
       <img
         class="single-product-img"
-        :src="product.data.image_1.url"
-        :alt="product.data.image_1.alt || 'Product Image'"
-        v-if="product.data.image_1"
+        :src="product.data.image.url"
+        :alt="product.data.image.alt || 'Product Image'"
+        v-if="product.data.image"
       />
     </div>
     <div

@@ -193,37 +193,15 @@ interface ProductDocumentData {
   title: prismic.KeyTextField;
 
   /**
-   * Image 1 field in *Product*
+   * Image field in *Product*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: product.image_1
+   * - **API ID Path**: product.image
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  image_1: prismic.ImageField<never>;
-
-  /**
-   * Image 2 field in *Product*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: product.image_2
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image_2: prismic.ImageField<never>;
-
-  /**
-   * Image 3 field in *Product*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: product.image_3
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image_3: prismic.ImageField<never>;
+  image: prismic.ImageField<never>;
 
   /**
    * Price field in *Product*

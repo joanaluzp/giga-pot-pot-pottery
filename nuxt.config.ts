@@ -19,7 +19,6 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
   },
-
   modules: ["@nuxtjs/prismic", "nuxt-swiper"],
   css: ["@/assets/scss/style.scss"],
   prismic: {
