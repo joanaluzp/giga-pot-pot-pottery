@@ -1,7 +1,7 @@
 <template>
-  <div class="slice-zone">
-    <SliceZone :slices="page?.data.slices ?? []" :components="components" />
-  </div>
+    <div class="slice-zone single-product">
+      <SliceZone :slices="page?.data.slices ?? []" :components="components" />
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -18,6 +18,10 @@ const { data: page } = useAsyncData(route.params.uid as string, () =>
     fetchLinks,
   })
 );
+
+definePageMeta({
+  middleware: ['transition'],
+});
 
 /*****WATCH SEO ROUTE*****/
 watch(

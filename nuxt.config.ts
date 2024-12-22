@@ -18,7 +18,7 @@ export default defineNuxtConfig({
       ],
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
-    pageTransition: { name: "page", mode: "out-in" },
+    pageTransition: { name: 'page' },
   },
   modules: ["@nuxtjs/prismic", "nuxt-swiper"],
   css: ["@/assets/scss/style.scss"],

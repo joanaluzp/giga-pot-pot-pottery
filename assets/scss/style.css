@@ -3328,7 +3328,6 @@ body {
   transition: all 0.5s ease-in-out;
   overflow-x: hidden;
   color: #000000;
-  scroll-behavior: smooth;
   scrollbar-color: #000000;
   /* Track */
   /* Handle */
@@ -3363,8 +3362,14 @@ body::-webkit-scrollbar-thumb {
 }
 html .main,
 body .main {
-  position: relative;
   min-height: 100vh;
+}
+html .app-content,
+body .app-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 html a,
 body a {
@@ -3398,6 +3403,14 @@ body .scale-hover-btn-wrapper .scale-hover-btn-link {
 html .scale-hover-btn-wrapper .scale-hover-btn-link:hover,
 body .scale-hover-btn-wrapper .scale-hover-btn-link:hover {
   transform: skew(20deg, 20deg) scale(2);
+}
+html .slice-zone.single-product,
+body .slice-zone.single-product {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 ::-moz-selection {
@@ -3472,6 +3485,7 @@ body .scale-hover-btn-wrapper .scale-hover-btn-link:hover {
 /*======SINGLE PRODUCT======*/
 .section-single-product {
   position: relative;
+  background-color: #ffffff;
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -3567,6 +3581,7 @@ body .scale-hover-btn-wrapper .scale-hover-btn-link:hover {
 }
 /*======CARD GRID======*/
 .card-grid-wrapper {
+  background-color: #ffffff;
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
