@@ -54,12 +54,17 @@ body {
     user-select: none; /* Standard syntax */
     .scale-hover-btn-link {
       display: inline-block;
-      @include transition2(all, 0.1s, ease-in-out);
-      &:hover {
-        transform: skew(20deg, 20deg) scale(2);
+    }
+    @media (min-width: 1200px) {
+      .scale-hover-btn-link {
+        @include transition2(all, 0.1s, ease-in-out);
+        &:hover {
+          transform: skew(20deg, 20deg) scale(2);
+        }
       }
     }
   }
+  
   .slice-zone {
     &.single-product {
       position: absolute;

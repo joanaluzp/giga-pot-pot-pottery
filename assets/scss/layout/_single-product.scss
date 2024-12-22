@@ -51,7 +51,7 @@
       .single-product-img {
         @include transition;
         &:hover{
-          transform: scale(2);
+          transform: scale(1.2);
         }
       }
     }

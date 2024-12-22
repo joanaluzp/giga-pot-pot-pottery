@@ -10,6 +10,6 @@ export default defineNuxtRouteMiddleware((to, from) => {
     from.meta.pageTransition = { name: 'page-down' };
   } else {
     to.meta.pageTransition = { name: 'page-down' };
-    from.meta.pageTransition = { name: 'page-down' };
+    from.meta.pageTransition = { name: 'page-up' };
   }
 })

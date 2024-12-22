@@ -15,9 +15,11 @@
       width: 100%;
       height: 100%;
       .card-product-img {
+        @include transition;
         display: block;
         width: 100%;
         height: 100%;
+        border-radius: 0;
         object-fit: cover;
         object-position: center center;
       }
@@ -71,7 +73,7 @@
       .card-grid-product {
         &:hover {
           z-index: 3;
-          animation: shake 0.3s ease infinite;
+          animation: bounce 0.7s ease;
           .card-product-img-wrapper {
             .card-product-img {
               border-radius: 30px;

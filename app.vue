@@ -7,7 +7,7 @@
 .page-up-enter-active,
 .page-down-enter-active,
 .page-up-leave-active,
-.page-down-leave-active {
+.page-down-leave-active{
   position: fixed;
   z-index: 100;
   top: 0;
@@ -16,14 +16,15 @@
   transition: all 0.3s linear;
 }
 
-.page-up-enter-from, .page-down-leave-to {
+.page-up-enter-from {
   transform: translateY(100%);
 }
-
-.page-up-leave-to, .page-down-enter-from {
+.page-up-leave-to {
   transform: translateY(-100%);
 }
-
+.page-down-enter-from, .page-down-leave-to {
+  transform: translateY(10%);
+}
 .page-up-enter-to, .page-down-enter-to {
   transform: translateY(0);
 }
